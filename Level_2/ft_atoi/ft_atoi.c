@@ -19,32 +19,24 @@ int	ft_atoi(const char *str);
 int	ft_atoi(const char *str)
 {
 	int	i;
-	int	min_counter;
 	int	num;
 
 	i = 0;
-	min_counter = 0;
 	num = 0;
-	while ((str[i] >= 7 && str[i] <= 13) || str[i] == 32)
+	if (str[0] == 43 || str[0] == 45)
 		i++;
-	while (str[i] == 43 || str[i] == 45)
-	{
-		if (str[i] == 45)
-			min_counter++;
-		i++;
-	}
 	while (str[i] >= 48 && str[i] <= 57)
 	{
 		num *= 10;
 		num += str[i] - 48;
 		i++;
 	}
-	if (min_counter % 2 != 0)
+	if (str[0] == 45)
 		num *= -1;
 	return (num);
 }
 
 int	main(void)
 {
-	printf("%d\n", ft_atoi("  ---+--+1234ab567"));
+	printf("%d\n", ft_atoi("+a1234ab567"));
 }
