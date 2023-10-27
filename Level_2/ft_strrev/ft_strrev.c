@@ -23,11 +23,13 @@ char *ft_strrev(char *str)
 	length = 0;
 	while (str[length] != '\0')
 		length++;
-	while (start < length)
+	length-=1;
+	while (start < ((length + 1) / 2))
 	{
 		temp = str[start];
-		str[start] = str[length];
-		str[length] = temp;
+		str[start] = str[length - start];
+		str[length - start] = temp;
+		start++;
 	}
 	return (str);
 }
